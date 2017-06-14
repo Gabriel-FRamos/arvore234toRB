@@ -40,6 +40,7 @@ int main() {
                 printf("\tArvore 2-3-4 convertida em Rubro-Negra");
                 system("clear");
                 flagMenu = 1;
+                //imprimirArvoreRB();
                 break;
             case 5:
                 exit(1);
@@ -72,6 +73,7 @@ int main() {
                 flagMenu = 0;
                 system("clear");
                 printf("\tArvore Rubro-Negra convertida em 2-3-4\n");
+                //imprimirArvore234();
                 break;
             case 5:
                 escolha1 = 5;
