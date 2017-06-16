@@ -5,10 +5,10 @@
 void a234_criaNo(){
     printf("Incompleta");
 }
-void a234_insere(){
+void a234_insere(a234 *a, int info){
     printf("Incompleta");
 }
-void a234_remove(){
+void a234_remove(a234 *a, int info){
     printf("Incompleta");
 }
 void converte234toRB(){

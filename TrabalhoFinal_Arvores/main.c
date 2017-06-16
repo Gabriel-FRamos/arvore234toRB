@@ -6,11 +6,12 @@
 
 int main() {
     int flagMenu = 0, escolha1 = 0, escolha2 = 0;
-    a234 *Arvore234;
+    int a234_dado, rb_dado;
+    a234 *Arvore234 = NULL;
     gerarDados();
-    lerArquivo(Arvore234);
+    //lerArquivo(Arvore234);
     printf("\tArvore 2-3-4\n");
-    a234_imprimir(Arvore234);
+    //a234_imprimir(Arvore234);
     
     while(flagMenu == 0){
         printf("[1] Inserir novo elemento na árvore 2-3-4\n");
@@ -23,22 +24,26 @@ int main() {
         switch(escolha1){
             case 1:
                 //Função que insere elemento na 2-3-4
-                //insereArvore234();
+                printf("Digite o elemento a ser inserido na Arvore 2-3-4: ");
+                scanf("%d", &a234_dado);
+                //a234_insere(Arvore234, a234_dado);
+                system("clear");
                 break;
             case 2:
                 //Função que remove elemento da 2-3-4
-                //removeArvore234();
+                printf("Digite o elemento a ser removido da Arvore 2-3-4: ");
+                scanf("%d", &a234_dado);
+                //a234_remove(Arvore234, a234_dado);
+                system("clear");
                 break;
             case 3:
-                system("clear");
                 //Função que imprime a arvore 2-3-4
-                //imprimirArvore234();
+                a234_imprimir(Arvore234);
                 break;
             case 4:
                 //Chama a função que converte
                 //converte234toRB();
                 printf("\tArvore 2-3-4 convertida em Rubro-Negra");
-                system("clear");
                 flagMenu = 1;
                 //imprimirArvoreRB();
                 break;
@@ -57,23 +62,27 @@ int main() {
         switch(escolha2){
             case 1:
                 //Função que insere elemento na rubro-negra
+                printf("Digite o elemento a ser inserido na Arvore Rubro-Negra: ");
+                scanf("%d", &rb_dado);
                 //insereArvoreRB();
+                system("clear");
                 break;
             case 2:
                 //Função que remove elemento na rubro-negra
+                printf("Digite o elemento a ser removido da Arvore Rubro-Negra: ");
+                scanf("%d", &rb_dado);
                 //removeArvoreRB();
+                system("clear");
                 break;
             case 3:
-                system("clear");
                 //Função que imprime a rubro-negra
                 //imprimirArvoreRB();
                 break;
             case 4:
                 //Chama a função que converte    
                 flagMenu = 0;
-                system("clear");
                 printf("\tArvore Rubro-Negra convertida em 2-3-4\n");
-                //imprimirArvore234();
+                //a234_imprimir(Arvore234);
                 break;
             case 5:
                 escolha1 = 5;
