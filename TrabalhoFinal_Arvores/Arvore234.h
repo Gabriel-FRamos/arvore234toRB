@@ -12,6 +12,7 @@ typedef struct a234{
 void a234_insere(a234 *a, int info);
 void a234_remove(a234 *a, int info);
 void converte234toRB();
+void a234_imprimir(a234 *a);
 
 #endif	/* ARVORE234_H */
 

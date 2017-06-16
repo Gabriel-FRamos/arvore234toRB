@@ -2,18 +2,8 @@
 #include <stdio.h>
 #include "E-S_dados.h"
 
-void lerArquivo(int dados[]){ //editar vet pra arvore 2-3-4
-    FILE *arq;
-    int i = 0;
-    if(!(arq = fopen("dados.txt", "r"))){
-        printf("Erro de arquivo\n");
-        exit(0);
-    }
-    while( !feof(arq)){
-        fscanf(arq, "%d", &dados[i]);
-        i++;
-    }
-    fclose(arq);
+void lerArquivo(a234 *A){ 
+    printf("Incompleta");
 }
 void gerarDados(){
     FILE *arq;
@@ -28,9 +18,4 @@ void gerarDados(){
     fclose(arq);
     return;
 }
-void imprimirArvoreRB(){
-    
-}
-void imprimirArvore234(){
-    
-}
+
