@@ -1,8 +1,17 @@
 #ifndef ARVORE234_H
 #define	ARVORE234_H
 
-void insereArvore234();
-void removeArvore234();
+
+typedef struct a234{
+    int valor[3];
+    int numChaves;
+    struct a234 *filho[4];
+    struct a234 *pai;
+}a234;
+
+void a234_insere(a234 *a, int info);
+void a234_remove(a234 *a, int info);
 void converte234toRB();
+
 #endif	/* ARVORE234_H */
 

@@ -7,7 +7,7 @@
 int main() {
     int flagMenu = 0, escolha1 = 0, escolha2 = 0;
     //Criar a arvore234
-    //gerarDados();
+    gerarDados();
     //lerArquivo();
     printf("\tArvore 2-3-4\n");
     //imprimirArvore234();
