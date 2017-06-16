@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include "ArvoreRB.h"
 
-<<<<<<< HEAD
 rb* rb_inicializaArvore() {
 	rb* sentinela; 
 	sentinela = (rb*) calloc(1, sizeof(rb)); 	
@@ -13,7 +12,7 @@ rb* rb_inicializaArvore() {
 	sentinela->pai = NULL; 
 
 	return sentinela; 
-=======
+}
 void rb_insereNo(rb* A, int valorNo){ // Todo nó inserido chama a função de balancemaento! 
     // Aloca novo nó. 
     rb* novoNo;
@@ -52,16 +51,6 @@ void rb_insereNo(rb* A, int valorNo){ // Todo nó inserido chama a função de b
 
     return; 
 }
-void removeArvoreRB(){
-    printf("o");
-}
-void converteRBto234(){
-    printf("o");
->>>>>>> f5a0735f9fed95841302257a6838432694e03231
-}
-
-void rb_insereNo(rb* Arv, int valorNo);
-
 void rb_rotacaoEsq(rb* Arv, rb* noDesbalanceado);
 
 void rb_rotacaoDir(rb* Arv, rb* noDesbalanceado);
