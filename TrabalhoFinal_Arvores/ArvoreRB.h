@@ -1,7 +1,6 @@
 #ifndef ARVORERB_H
 #define	ARVORERB_H
 
-<<<<<<< HEAD
 typedef struct rb {
     int info;
     char cor;
@@ -45,10 +44,6 @@ void rb_removeNo(rb* Arv, int valor);
 // implementar segundo as tabelas de referência
 void rb_balanceamentoRemocao(rb* Arv, rb* noPai, rb* noSubstituto, int valorRemovido);
 
-=======
-void insereArvoreRB();
-void removeArvoreRB();
->>>>>>> 75affb09f2eb618f54765406aee064a9a2e9da0f
 
 #endif	/* ARVORERB_H */
 
