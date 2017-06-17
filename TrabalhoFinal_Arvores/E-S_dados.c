@@ -3,7 +3,19 @@
 #include "E-S_dados.h"
 
 void lerArquivo(a234 *A){ 
-    printf("Incompleta");
+    int i;
+    FILE *file;
+    if(!(file = fopen("dados.txt","r"))) exit(0);
+    while(1){
+        fscanf(file, "%d",&A);
+        if(feof(file))break;
+        if (ferror(file)){
+            printf("Erro ao ler arquivo de dados");
+            exit(0);
+        }
+        a234_insere(A, i);
+    }
+    fclose(file);
 }
 void gerarDados(){
     FILE *arq;

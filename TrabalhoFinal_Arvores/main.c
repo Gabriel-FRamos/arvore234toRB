@@ -8,7 +8,7 @@ int main() {
     int flagMenu = 0, escolha1 = 0, escolha2 = 0;
     int a234_dado, rb_dado;
     a234  *Arvore234;
-    Arvore234 = a234_inicializa();
+    Arvore234 = a234_inicializaArvore();
     gerarDados();
     //lerArquivo(Arvore234);
     printf("\tArvore 2-3-4\n");
@@ -27,14 +27,14 @@ int main() {
                 //Função que insere elemento na 2-3-4
                 printf("Digite o elemento a ser inserido na Arvore 2-3-4: ");
                 scanf("%d", &a234_dado);
-                //a234_insere(Arvore234, a234_dado);
+                a234_insere(Arvore234, a234_dado);
                 system("clear");
                 break;
             case 2:
                 //Função que remove elemento da 2-3-4
                 printf("Digite o elemento a ser removido da Arvore 2-3-4: ");
                 scanf("%d", &a234_dado);
-                //a234_remove(Arvore234, a234_dado);
+                a234_remove(Arvore234, a234_dado);
                 system("clear");
                 break;
             case 3:
@@ -43,7 +43,7 @@ int main() {
                 break;
             case 4:
                 //Chama a função que converte
-                //converte234toRB();
+                converte234toRB();
                 printf("\tArvore 2-3-4 convertida em Rubro-Negra");
                 flagMenu = 1;
                 //imprimirArvoreRB();
