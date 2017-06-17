@@ -42,7 +42,7 @@ a234 *a234_busca(a234 *a, int info, int *tam, int *aux){
     }else{
         pos = a234_buscaBinaria(a,info);
         if (a->numChaves > pos && a->valor[pos] == info){
-            printf("Erro: Valor ja esta contido.\n");
+        //    printf("Erro: Valor ja esta contido.\n");
             *tam = 0;
             }else{	
                 filho = a234_busca(a->filho[pos],info, tam,aux);
