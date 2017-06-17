@@ -6,7 +6,7 @@ a234 a234_inicializa(){
     a234 sentinela = calloc(1, sizeof(a234));
     sentinela->pai = NULL;
     sentinela->numChaves = 0;
-    sentinela->valor = NULL;
+    sentinela->valor = -1000;
     sentinela->filho = NULL;
     
     return sentinela;
