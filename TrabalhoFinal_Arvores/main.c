@@ -10,7 +10,7 @@ int main() {
     a234  *Arvore234;
     Arvore234 = a234_inicializaArvore();
     gerarDados();
-    //lerArquivo(Arvore234);
+    lerArquivo(Arvore234);
     printf("\tArvore 2-3-4\n");
     a234_imprimir(Arvore234);
     

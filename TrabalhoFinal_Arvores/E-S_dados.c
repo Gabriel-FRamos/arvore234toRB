@@ -7,7 +7,7 @@ void lerArquivo(a234 *A){
     FILE *file;
     if(!(file = fopen("dados.txt","r"))) exit(0);
     while(1){
-        fscanf(file, "%d",&A);
+        fscanf(file, "%d",&i);
         if(feof(file))break;
         if (ferror(file)){
             printf("Erro ao ler arquivo de dados");
