@@ -4,8 +4,13 @@
 
 rb* rb_inicializaArvore() {
 	rb* sentinela; 
-	sentinela = (rb*) calloc(1, sizeof(rb)); 	
-	sentinela->info = 1000; 
+	sentinela = (rb*) calloc(1, sizeof(rb)); 
+	if(!sentinela)	 {
+		printf("[!!!] Erro ao alocar sentinela.\n");
+		return;
+	}
+
+	sentinela->info = -1000; 
 	sentinela->cor = 'p'; 		// O nó sentinela é preto. 
 	sentinela->esq = NULL;
 	sentinela->dir = NULL;
@@ -14,9 +19,15 @@ rb* rb_inicializaArvore() {
 	return sentinela; 
 }
 void rb_insereNo(rb* A, int valorNo){ // Todo nó inserido chama a função de balancemaento! 
-    // Aloca novo nó. 
+    // Aloca na memória o novo nó. 
     rb* novoNo;
     novoNo = (rb*) calloc(1, sizeof(rb));
+    
+    if(!novoNo) {
+    	printf("[!!!] Erro na alocação de memória do novo nó.\n");
+    	return; 
+    }
+
     novoNo->info = valorNo;
     novoNo->esq = NULL;
     novoNo->dir = NULL;
@@ -117,10 +128,122 @@ void rb_rotacaoDir(rb* Arv, rb* noDesbalanceado) {
 	return; 
 }
 
-void rb_percorreOrdem(rb* Arv);
+void rb_percorreOrdem(rb* Arv) {
+	if(Arv == NULL) {
+		return; 
+	}
 
-void rb_balanceamentoInsercao(rb* Arv, rb* noInserido);
+	rb_percorreOrdem(Arv->esq);
+	printf("Valor = %d \tFB = %d \n", arv->info, arv->FB); 
+	rb_percorreOrdem(Arv->dir);
+}
 
-void rb_removeNo(rb* Arv, int valor);
+/****
+** 		Função responsável por realizar rotações e/ou inversão de cores dos nós, após realizada uma operação de inserção de nó,
+** para garantir que a propriedade de árvoreRB de um nó vermelho não ter filhos vermelhos seja mantidas. Essa propriedade será quebrada
+** se o pai do nó inserido for vermelho, então o primeiro passo necessário é verificar a cor do pai para saber se houve de fato a quebra da propriedade
+** referida anteriormente.
+**  	A função leva em consideração a cor do tio do nó avaliado para verificar as trocas de cor e rotações que devem ser feitas 
+** (ou não devem, no caso das rotações). 
+** 		O nó avaliado pode ser o nó que acabou de ser inserido ou um dos seus ancestrais (que pode ter quebrado propriedades da árvore RB
+** após o nó inserido ser avaliado por essa mesma função)
+*****/
+void rb_balanceamentoInsercao(rb* Arv, rb* noAvaliado) {	
+	// Definição de variáveis que irão auxiliar na realização de operações de inversão de cor e rotação (se esta for necessária)
+	rb* pai = noAvaliado->pai; 
+	rb* avo = pai->pai; 
+	rb* tio = NULL; 
+	char corTio; 
 
-void rb_balanceamentoRemocao(rb* Arv, rb* noPai, rb* noSubstituto, int valorRemovido);
+	// Verificação da cor do pai do nó avaliado para saber se houve quebra de propriedade (ou seja, nós vermelhos tendo filhos vermelhos)
+	if(pai->cor == 'v') {
+
+		if(noAvaliado->info < avo->info) {		// Verifica se o nó avaliado está à esq do avô. 
+			tio = avo->dir; 		// Como no avaliado está à esq do avô, seu pai é filho da esquerda do avô. Logo, o tio é o filho da direita do avô. 
+
+			if(tio == NULL) {		// Se o avô não tem filho à dir.
+				corTio = 'p'; 		// Por convenção, a cor de um nó nulo é preto. 
+			} else {
+				corTio = tio->cor; // Se o tio não for nulo, a variável 'corTio' simplesmente recebe sua cor correspondente. 
+			}
+
+		// Casos para correção das propriedades da árvore
+		
+		//// CASO 1
+			if(corTio == 'v') {
+				pai->cor = 'p';
+				tio->cor = 'p';
+				avo->cor = 'v'; 
+				// Verifica recursivamente se a mudança dos campos de cor do nó avaliado ocasionou quebra de propriedade (ou seja, se um nó vermelho passou a ter filho vermelho)
+				rb_balanceamentoInsercao(Arv, avo); 	// Como o avô agora é vermelho, ele pode ter quebrado a propriedade.
+			}
+
+		//// CASO 2 
+			if( (tio->cor == 'p') && (noAvaliado->info > pai->info) ) { // Tio é preto e o nó avaliado é filho da dir
+				noAvaliado = pai; 	// Nó avaliado toma a posição do seu pai, "subindo" um nó.
+				rb_rotacaoEsq(Arv, noAvaliado); 	// É feita a rotação à esq. no pai do nó avaliado (que agora é o nó avaliado)
+				pai = noAvaliado->pai;			// Atualiza o pai do nó avaliado: Se a referência do nó avaliado foi mudada, deve-se mudar a referência do pai dele também, para fins de rotação.  
+			}
+
+		////CASO 3
+			if( (tio->cor == 'p') && (noAvaliado->info < pai->info) ) { // Tio é preto e o nó avaliado é filho da esq
+				pai->cor = 'p';
+				avo->cor = 'v';
+				rb_rotacaoDir(Arv, avo); 
+			}
+
+
+
+		} else { // O nó avaliado está à direita do avô
+			tio = avo->esq; 		// Como no avaliado está à dir do avô, seu pai é filho da direita do avô. Logo, o tio é o filho da esquerda do avô. 
+
+			if(tio == NULL) {		// Se o avô não tem filho à esquerda.
+				corTio = 'p'; 		// Por convenção, a cor de um nó nulo é preto. 
+			} else {
+				corTio = tio->cor; // Se o tio não for nulo, a variável 'corTio' simplesmente recebe sua cor correspondente. 
+			}
+
+
+		// Casos para correção das propriedades da árvore
+		
+		//// CASO 1
+			if(corTio == 'v') {
+				pai->cor = 'p';
+				tio->cor = 'p';
+				avo->cor = 'v'; 
+				// Verifica recursivamente se a mudança dos campos de cor do nó avaliado ocasionou quebra de propriedade (ou seja, se um nó vermelho passou a ter filho vermelho)
+				rb_balanceamentoInsercao(Arv, avo); 	// Como o avô agora é vermelho, ele pode ter quebrado a propriedade.
+			}
+
+
+		//// CASO 2 
+			if( (tio->cor == 'p') && (noAvaliado->info < pai->info) ) { // Tio é preto e o nó avaliado é filho da esq
+				noAvaliado = pai; 	// Nó avaliado toma a posição do seu pai, "subindo" um nó.
+				rb_rotacaoDir(Arv, noAvaliado); 	// É feita a rotação à esq. no pai do nó avaliado (que agora é o nó avaliado)
+				pai = noAvaliado->pai;			// Atualiza o pai do nó avaliado: Se a referência do nó avaliado foi mudada, deve-se mudar a referência do pai dele também, para fins de rotação.  
+			}
+
+		////CASO 3
+			if( (tio->cor == 'p') && (noAvaliado->info > pai->info) ) { // Tio é preto e o nó avaliado é filho da dir
+				pai->cor = 'p';
+				avo->cor = 'v';
+				rb_rotacaoEsq(Arv, avo); 
+			}
+
+		} // Fim da verificação da posição do nó avaliado em relação ao avô
+
+	} // Fim da verificação da cor do pai do nó avaliado 
+
+	Arv->dir->cor = 'p'; 	// Colore a raiz de preto, em todos os casos.
+
+
+} // Fim da função 'rb_balanceamentoInsercao(rb* Arv, rb* noAvaliado)'
+
+
+void rb_removeNo(rb* Arv, int valor) {
+	 
+}
+
+void rb_balanceamentoRemocao(rb* Arv, rb* noPai, rb* noSubstituto, int valorRemovido) {
+	 
+}
