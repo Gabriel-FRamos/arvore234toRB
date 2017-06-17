@@ -7,10 +7,9 @@
 int main() {
     int flagMenu = 0, escolha1 = 0, escolha2 = 0;
     int a234_dado, rb_dado;
-    a234  *Arvore234;
-    Arvore234 = a234_inicializaArvore();
-    gerarDados();
-    lerArquivo(Arvore234);
+    a234  *Arvore234 = NULL;
+    //gerarDados();
+    Arvore234 = lerArquivo(Arvore234);
     printf("\tArvore 2-3-4\n");
     a234_imprimir(Arvore234);
     
@@ -27,7 +26,7 @@ int main() {
                 //Função que insere elemento na 2-3-4
                 printf("Digite o elemento a ser inserido na Arvore 2-3-4: ");
                 scanf("%d", &a234_dado);
-                a234_insere(Arvore234, a234_dado);
+                Arvore234 = a234_insere(Arvore234, a234_dado);
                 system("clear");
                 break;
             case 2:

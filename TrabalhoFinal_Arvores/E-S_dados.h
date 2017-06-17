@@ -3,6 +3,6 @@
 #include "Arvore234.h"
 
 void gerarDados();
-void lerArquivo(a234 *A); 
+a234* lerArquivo(); 
 #endif	/* E_S_DADOS_H */
 

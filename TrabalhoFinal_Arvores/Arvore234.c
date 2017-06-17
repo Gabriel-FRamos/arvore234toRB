@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "Arvore234.h"
 
-a234* a234_inicializaArvore(){
+/*a234* a234_inicializaArvore(){
     a234* sentinela;
     sentinela = (a234*)calloc(1, sizeof(a234));
     sentinela->pai = NULL;
@@ -12,6 +12,7 @@ a234* a234_inicializaArvore(){
     
     return sentinela;
 }
+ * */
 a234* a234_insere(a234 *a, int info){
     int tam;
     int aux, i;
@@ -118,6 +119,7 @@ void a234_imprimir(a234 *A){
       	}
 	a234_imprimir(A->filho[i]);
     }
+    printf("\n");
 }
 void converte234toRB(){
     printf("\nIncompleta\n");
