@@ -7,11 +7,11 @@
 int main() {
     int flagMenu = 0, escolha1 = 0, escolha2 = 0;
     int a234_dado, rb_dado;
-    a234 *Arvore234 = NULL;
+    a234* Arvore234 = a234_inicializa();
     gerarDados();
     //lerArquivo(Arvore234);
     printf("\tArvore 2-3-4\n");
-    //a234_imprimir(Arvore234);
+    a234_imprimir(Arvore234);
     
     while(flagMenu == 0){
         printf("[1] Inserir novo elemento na árvore 2-3-4\n");
@@ -55,8 +55,7 @@ int main() {
             printf("\n[1] Inserir novo elemento na árvore Rubro-Negra\n");
             printf("[2] Remover elemento da árvore Rubro-Negra\n");
             printf("[3] Imprimir árvore Rubro-Negra\n");
-            printf("[4] Converter em uma árvore 2-3-4\n");
-            printf("[5] Sair\n");
+            printf("[4] Sair\n");
             scanf("%d", &escolha2);
         
         switch(escolha2){
@@ -79,12 +78,6 @@ int main() {
                 //imprimirArvoreRB();
                 break;
             case 4:
-                //Chama a função que converte    
-                flagMenu = 0;
-                printf("\tArvore Rubro-Negra convertida em 2-3-4\n");
-                //a234_imprimir(Arvore234);
-                break;
-            case 5:
                 escolha1 = 5;
                 exit(1);
                 break;

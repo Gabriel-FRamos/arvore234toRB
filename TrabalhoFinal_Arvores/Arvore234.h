@@ -9,6 +9,7 @@ typedef struct a234{
     struct a234 *pai;
 }a234;
 
+a234 a234_inicializa();
 void a234_insere(a234 *a, int info);
 void a234_remove(a234 *a, int info);
 void a234_imprimir(a234 *a);

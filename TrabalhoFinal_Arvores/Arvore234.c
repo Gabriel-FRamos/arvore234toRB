@@ -2,16 +2,19 @@
 #include <stdio.h>
 #include "Arvore234.h"
 
-void a234_criaNo(){
-    printf("Incompleta");
+a234 a234_inicializa(){
+    a234 sentinela = calloc(1, sizeof(a234));
+    sentinela->pai = NULL;
+    sentinela->numChaves = 0;
+    sentinela->valor = NULL;
+    sentinela->filho = NULL;
+    
+    return sentinela;
 }
 void a234_insere(a234 *a, int info){
     printf("Incompleta");
 }
 void a234_remove(a234 *a, int info){
-    printf("Incompleta");
-}
-void converte234toRB(){
     printf("Incompleta");
 }
 void a234_imprimir(a234 *A){
@@ -23,5 +26,8 @@ void a234_imprimir(a234 *A){
       	}
 	a234_imprimir(A->filho[i]);
     }
+}
+void converte234toRB(){
+    printf("Incompleta");
 }
 
