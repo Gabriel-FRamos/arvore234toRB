@@ -6,13 +6,8 @@ void lerArquivo(a234 *A){
     int i;
     FILE *file;
     if(!(file = fopen("dados.txt","r"))) exit(0);
-    while(1){
+    while(! feof(file)){
         fscanf(file, "%d",&i);
-        if(feof(file))break;
-        if (ferror(file)){
-            printf("Erro ao ler arquivo de dados");
-            exit(0);
-        }
         a234_insere(A, i);
     }
     fclose(file);
@@ -25,7 +20,7 @@ void gerarDados(){
         exit(0);
     }
     for(int j = 0; j < 10; j++){
-        fprintf(arq, "%d\n", rand()%50+1);
+        fprintf(arq, "%d\n", rand()%100+1);
     }
     fclose(arq);
     return;
