@@ -3,11 +3,11 @@
 #include "Arvore234.h"
 
 a234 a234_inicializa(){
-    a234 sentinela = calloc(1, sizeof(a234));
+    a234 *sentinela = calloc(1, sizeof(a234));
     sentinela->pai = NULL;
     sentinela->numChaves = 0;
-    sentinela->valor = -1000;
-    sentinela->filho = NULL;
+    sentinela->filho;
+    sentinela->valor;
     
     return sentinela;
 }

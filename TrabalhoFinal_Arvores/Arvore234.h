@@ -2,12 +2,13 @@
 #define	ARVORE234_H
 
 
-typedef struct a234{
+struct a234{
     int valor[3];
     int numChaves;
     struct a234 *filho[4];
     struct a234 *pai;
-}a234;
+};
+typedef struct a234 a234;
 
 a234 a234_inicializa();
 void a234_insere(a234 *a, int info);

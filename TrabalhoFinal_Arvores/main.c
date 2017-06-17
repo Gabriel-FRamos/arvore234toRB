@@ -7,7 +7,8 @@
 int main() {
     int flagMenu = 0, escolha1 = 0, escolha2 = 0;
     int a234_dado, rb_dado;
-    a234* Arvore234 = a234_inicializa();
+    a234  *Arvore234;
+    Arvore234 = a234_inicializa();
     gerarDados();
     //lerArquivo(Arvore234);
     printf("\tArvore 2-3-4\n");
