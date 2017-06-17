@@ -38,6 +38,7 @@ int main() {
                 break;
             case 3:
                 //Função que imprime a arvore 2-3-4
+                printf("-------------------------");
                 a234_imprimir(Arvore234);
                 break;
             case 4:

@@ -115,7 +115,7 @@ void a234_imprimir(a234 *A){
     if (A != NULL){
         for (i = 0; i < A->numChaves; i++){
             a234_imprimir(A->filho[i]);
-            printf("\n%d", A->valor[i]);
+            printf("%d ", A->valor[i]);
       	}
 	a234_imprimir(A->filho[i]);
     }
