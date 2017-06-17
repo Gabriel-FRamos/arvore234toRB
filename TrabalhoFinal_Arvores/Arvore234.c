@@ -17,7 +17,7 @@ a234* a234_insere(a234 *a, int info){
     int aux, i;
     a234 *filho, *novoNo;	
     filho = a234_busca(a,info,&tam,&aux);
-    if (tam){
+    if(tam){
         novoNo = (a234*)malloc(sizeof(a234));
         novoNo->numChaves = 1;
         novoNo->valor[0] = aux;
@@ -26,7 +26,7 @@ a234* a234_insere(a234 *a, int info){
         for(i=2; i<=3;i++){
             novoNo->filho[i] = NULL;
         }
-            return(novoNo);
+        return(novoNo);
     }else{
         return (a);
     }
