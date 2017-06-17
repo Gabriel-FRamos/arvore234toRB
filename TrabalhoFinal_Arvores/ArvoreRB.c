@@ -134,7 +134,7 @@ void rb_percorreOrdem(rb* Arv) {
 	}
 
 	rb_percorreOrdem(Arv->esq);
-	printf("Valor = %d \tFB = %d \n", arv->info, arv->FB); 
+	printf("Valor = %d \tFB = %d \n", Arv->info, Arv->FB); 
 	rb_percorreOrdem(Arv->dir);
 }
 
