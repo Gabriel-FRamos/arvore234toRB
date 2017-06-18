@@ -13,6 +13,13 @@
     return sentinela;
 }
  * */
+/*Primeiro, pesquise a posição onde este nó será incluído. Então, insira o valor dentro do nó.
+Se nenhum nó ficou errado, acima ou abaixo da ordem div 2, o processo é terminado.
+Se algum nó ficar acima da ordem, dividimos o nó, o valor central do nó dividido sobe
+para a posição do pai,
+continuando assim recursivamente por toda a árvore. Se o nó estourar na raiz, então é
+criado um novo nó raiz
+(podendo ter um único elemento).*/
 a234* a234_insere(a234 *a, int info){
     int tam;
     int aux, i;
@@ -109,6 +116,14 @@ void a234_insereChave(a234 *a, int dado, a234 *filho){
 }
 void a234_remove(a234 *a, int info){
     printf("\nIncompleta\n");
+    /*Primeiro, busque um valor a ser excluído. Então, remova-o de dentro de um nó.
+Se nenhum nó teve problema, o processo é terminado.
+Se algum nó estiver errado, então há duas possibilidades:
+Se o nó ao lado do nó errado pode transferir um ou mais de seus nós filho ao nó atual,
+então o nó atual voltará ao normal. Após ter atualizado os valores da separação do pai
+e dos dois filhos, o processo é terminado.
+Se o nó ao lado do nó errado não tem um filho extra porque está no limite mais baixo,
+então ambos os nós serão fundidos em um único nó. Continuando até que o nó atual esteja normal.*/
 }
 void a234_imprimir(a234 *A){
     int i;
