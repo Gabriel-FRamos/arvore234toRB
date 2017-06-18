@@ -10,7 +10,7 @@ int main() {
     a234  *Arvore234 = NULL;
     //gerarDados();
     Arvore234 = lerArquivo(Arvore234);
-    printf("\tArvore 2-3-4\n");
+    printf("\tArvore 2-3-4 gerada pelos dados do arquivo\n");
     a234_imprimir(Arvore234);
     
     while(flagMenu == 0){
@@ -28,6 +28,7 @@ int main() {
                 scanf("%d", &a234_dado);
                 Arvore234 = a234_insere(Arvore234, a234_dado);
                 system("clear");
+                printf("\n\t%d inserido na Arvore 2-3-4\n", a234_dado);
                 break;
             case 2:
                 //Função que remove elemento da 2-3-4
@@ -35,10 +36,12 @@ int main() {
                 scanf("%d", &a234_dado);
                 a234_remove(Arvore234, a234_dado);
                 system("clear");
+                printf("\n\t%d removido da Arvore 2-3-4\n", a234_dado);
                 break;
             case 3:
                 //Função que imprime a arvore 2-3-4
-                printf("-------------------------");
+                system("clear");
+                printf("\n\tArvore 2-3-4\n");
                 a234_imprimir(Arvore234);
                 break;
             case 4:
@@ -49,7 +52,7 @@ int main() {
                 //imprimirArvoreRB();
                 break;
             case 5:
-                exit(1);
+                return 0;
                 break;
         }
         while(flagMenu == 1){
@@ -66,6 +69,7 @@ int main() {
                 scanf("%d", &rb_dado);
                 //insereArvoreRB();
                 system("clear");
+                printf("\n\t%d inserido na Arvore Rubro-Negra\n", rb_dado);
                 break;
             case 2:
                 //Função que remove elemento na rubro-negra
@@ -73,14 +77,17 @@ int main() {
                 scanf("%d", &rb_dado);
                 //removeArvoreRB();
                 system("clear");
+                printf("\n\t%d removido da Arvore Rubro-Negra\n", rb_dado);
                 break;
             case 3:
-                //Função que imprime a rubro-negra
-                //imprimirArvoreRB();
+                //Função que imprime a arvore rubro-negra
+                system("clear");
+                printf("\n\tArvore Rubro-Negra\n");
+                //chama função de impressao
                 break;
             case 4:
                 escolha1 = 5;
-                exit(1);
+                return 0;
                 break;
             }
         }
